@@ -1,0 +1,535 @@
+<template>
+    <div class="approval-page-box">
+        <back-header title="设备报修"></back-header>
+        <div class="approval-container">
+            <mt-navbar v-model="selected">
+                <mt-tab-item id="info">
+                    <img v-show="selected=='info'" src="@/assets/images/icon/sp-icon1.png" slot="icon" alt="">
+                    我要报修
+                </mt-tab-item>
+                <mt-tab-item id="stuff">
+                    <img v-show="selected=='stuff'" src="@/assets/images/icon/sp-icon2.png" slot="icon" alt="">
+                    报修记录
+                </mt-tab-item>
+                <mt-tab-item id="state">
+                    <img v-show="selected=='state'" src="@/assets/images/icon/sp-icon3.png" slot="icon" alt="">
+                    已完成报修
+                </mt-tab-item>
+            </mt-navbar>
+            <mt-tab-container class="tab-container" v-model="selected" swipeable>
+                <mt-tab-container-item id="info">
+                  <div class="build-form">
+
+                  <div class="form-top">
+                        <div>
+                            <textarea placeholder="请描述您要报修的详情"></textarea>
+                      </div>
+                      <van-uploader :after-read="onRead">
+                        <van-icon name="photograph" />
+                      </van-uploader>
+                    </div>
+
+                    <div class="form-mid">
+                           <!--    <div class="img-box">
+                              <ul class="list-ul">
+                                  <li class="list-li" v-for="(img, index) in options.imgs" :key="index">
+                                    <a class="list-link" @click='previewImage(img)'>
+                                      <img class="img_file" :src="img" alt=""/>
+                                    </a>
+                                    <span class="list-img-close" @click='delImage(index)'></span>
+                                  </li>
+                                <li class="list-li">
+                                  <span class="add-img" @click.stop="upload" src="@/assets/images/upload.png" alt="" > </span>
+                                </li>
+                              </ul>
+                          </div>  -->
+                    </div>
+
+                    <div class="form-bottom">
+                        <mt-cell is-link title="请选择报修的类型" @click.native="pickerOpen('type')" :value="options.type"></mt-cell>
+                        <mt-cell is-link title="立即处理" @click="pickerOpen('start')" :value="options.type"> </mt-cell>
+                    </div>
+                    <h5>联系人</h5>
+                    <div class="form-bottom">
+                        <mt-cell is-link  :value="options.type"></mt-cell>
+                        <mt-cell is-link @click.native="pickerOpen('object')" title="通知对象" :value="options.object"></mt-cell>
+                        <mt-cell is-link  :value="地址22"></mt-cell>
+                        <mt-button size="large" @click.native="issue">提交</mt-button>
+                    </div>
+
+                    </div>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="stuff">
+                    <!-- <div class="stuff-wrapper">
+                        <mt-cell v-for="(item,index) in stuff" :key="index" :to="item.path" is-link :title="item.label"></mt-cell>
+
+                    </div> -->
+                    <!-- <div class="review-container">
+                        <div class="review-item" v-for="(item,index) in reviewList[selected].valueList" :key="index">
+                            <div class="item-title">
+                                <p class="title-left">{{item.title}}</p>
+                                <p class="title-right">待处理</p>
+                            </div>
+                            <div class="item-flow">墙皮脱落严重墙皮脱落严重墙皮脱落严重墙皮脱落严重墙皮脱落严重</div>
+                            <div class="item-time">承诺时间：{{item.time}}</div>
+
+
+                            <mt-button  @click.native="approval(item)">取消报修</mt-button>
+                            <mt-button  @click.native="approval(item)">完成报修</mt-button>
+                        </div>
+                    </div> -->
+
+                </mt-tab-container-item>
+                <mt-tab-container-item id="state">
+                      <!-- <div class="review-container">
+                        <div class="review-item" v-for="(item,index) in reviewList[selected].valueList" :key="index">
+                            <div class="item-title">
+                                <p class="title-left">{{item.title}}</p>
+                                <p class="title-right">已处理</p>
+                            </div>
+                            <div class="item-flow">墙皮脱落严重墙皮脱落严重墙皮脱落严重墙皮脱落严重墙皮脱落严重</div>
+                            <div class="item-time">服务时间：{{item.time}}</div>
+                        </div>
+                    </div> -->
+                </mt-tab-container-item>
+            </mt-tab-container>
+        </div>
+    </div>
+</template>
+<script>
+
+import { MessageBox } from 'mint-ui';
+import { Uploader } from 'vant'
+
+export default {
+  name: "equipmentRepairPage",
+  components: {
+    [Uploader.name]: Uploader
+  },
+  data() {
+    return {
+      selected: "info",
+      info: [
+        {
+          label: "申报事项",
+          value: "东城区域装修(未批先建）科经管绿化"
+        },
+        {
+          label: "事项分类",
+          value: "装修整顿费用"
+        },
+        {
+          label: "事项编码",
+          value: "WNEJUDE201807938"
+        },
+        {
+          label: "申报人(单位)",
+          value: "水域新城建设有限公司"
+        },
+        {
+          label: "经办人",
+          value: "张美元"
+        },
+        {
+          label: "手机号",
+          value: "13139895859"
+        },
+        {
+          label: "固定电话",
+          value: "092837893"
+        },
+        {
+          label: "具体地址",
+          value: "北京市赛罕区伦杯建材城"
+        }
+      ],
+      stuff: [
+        {
+          label: "申报报告(正式文件).doc",
+          path: "#"
+        },
+        {
+          label: "申报报告(正式文件).doc",
+          path: "#"
+        },
+        {
+          label: "申报报告(正式文件).doc",
+          path: "#"
+        },
+        {
+          label: "申报报告(正式文件).doc",
+          path: "#"
+        },
+        {
+          label: "申报报告(正式文件).doc",
+          path: "#"
+        },
+        {
+          label: "申报报告(正式文件).doc",
+          path: "#"
+        },
+        {
+          label: "申报报告(正式文件).doc",
+          path: "#"
+        }
+      ],
+      options: {
+        title: "",
+        zy: "",
+        type: "紧急通知",
+        startTime: "2018/06/07",
+        endTime: "2018/06/12",
+        object: "恒大集团事业部",
+        comment: "是",
+        imgs: [
+          "static/images/p4.png",
+          "static/images/p5.png"
+        ]
+      },
+    };
+  },
+  methods: {
+    submit() {
+      MessageBox.confirm("确定执行此操作?").then(action => {});
+    },
+    onRead(file) {
+      console.log(file);
+    },
+    pickerOpen(type) {
+      console.log(type);
+    }
+  }
+};
+</script>
+<style>
+.approval-page-box {
+  min-height: 14rem;
+}
+.approval-top {
+  width: 9rem;
+  padding: 0 0.5rem;
+  background: #fff;
+  border-bottom: 1px solid #cccccc;
+}
+.approval-top h4 {
+  color: #1f1f1f;
+  font-size: 0.453333rem;
+  padding: 0.3rem 0;
+}
+.approval-top p {
+  color: #ba0404;
+  font-size: 0.32rem;
+  padding: 0 0 0.3rem;
+}
+.approval-container {
+  min-height: 14rem;
+}
+.approval-container .mint-tab-item.is-selected {
+  color: #ba0404;
+  border-color: #ba0404;
+}
+.approval-container .mint-tab-item-icon,
+.approval-container .mint-tab-item-label {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.453333rem;
+}
+.approval-container .mint-tab-item-icon {
+  width: 0.453333rem;
+  height: 0.453333rem;
+}
+.approval-container .tab-container {
+ padding: 0.35rem;
+}
+h5{
+    font-size:.4rem;
+    padding: .2rem .5rem;
+    background: #f6f6f6;
+}
+
+.mint-tab-item-icon img {
+  width: 100%;
+  height: 100%;
+}
+.info-wrapper {
+  font-size: 0.426667rem;
+  width: 7rem;
+  margin: 1.3rem auto 0;
+}
+.info-row {
+  overflow: hidden;
+  margin-bottom: 0.3rem;
+}
+.info-row > div {
+  float: left;
+}
+.info-row > .info-row-left {
+  width: 1.733333rem;
+  margin-right: 0.5rem;
+  text-align: right;
+  color: #1f1f1f;
+}
+.info-row > .info-row-right {
+  width: 4.72rem;
+}
+.stuff-wrapper {
+  margin-top: 3px;
+}
+.stuff-wrapper .mint-cell,
+.stuff-wrapper .mint-cell-wrapper {
+  background: transparent;
+}
+.stuff-wrapper .mint-cell {
+  padding: 0 0.3rem;
+  margin-bottom: 0.05rem;
+  background: #fff;
+}
+.stuff-wrapper .mint-cell-wrapper .mint-cell-text {
+  font-size: 0.4rem;
+}
+.state-wrapper {
+  width: 9.6rem;
+  margin: 0 auto;
+  min-height: 10rem;
+  border-bottom: 1px solid #d8d8d8;
+  position: relative;
+  overflow: hidden;
+}
+.line {
+  width: 0.053333rem;
+  height: 8rem;
+  background: #d8d8d8;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+.line > span {
+  position: absolute;
+  width: 0.266667rem;
+  height: 0.266667rem;
+  background: #d8d8d8;
+  border-radius: 50%;
+  transform: translateX(-45%);
+}
+.line > span:nth-child(2) {
+  top: 2rem;
+}
+.line > span:nth-child(3) {
+  top: 4rem;
+}
+.line > span:nth-child(4) {
+  top: 6rem;
+}
+.line > img {
+  width: 0.586667rem;
+  height: 0.586667rem;
+  position: absolute;
+  top: -0.293333rem;
+  left: -0.266667rem;
+}
+.state-item {
+  width: 5rem;
+  margin: 0 auto;
+  overflow: hidden;
+  font-size: 0.4rem;
+}
+.state-item .item-left {
+  float: left;
+  /* text-align: center; */
+  width: 2.5rem;
+}
+.state-item .item-right {
+  float: right;
+  width: 2.5rem;
+  text-align: right;
+}
+.state-wrapper .state-item:nth-of-type(2) {
+  margin-top: 1.5rem;
+}
+.state-wrapper .state-item:nth-of-type(3) {
+  margin-top: 1.2rem;
+}
+.state-wrapper .state-item:nth-of-type(4) {
+  margin-top: 1rem;
+}
+.state-wrapper .state-item:nth-of-type(5) {
+  margin-top: 1.2rem;
+}
+.approval-page-box .submit {
+  width: 8rem;
+  font-size: 0.4rem;
+  color: #fff;
+  background: #ba0404;
+  margin: 0.3rem auto;
+}
+.mint-msgbox{
+    width: 6rem;
+}
+.mint-msgbox-confirm{
+    color:#fff;background: #ba0404;
+}
+
+.form-top > div {
+  background: #fff;
+}
+
+.build-form .form-mid {
+  background: #fff;
+}
+.build-form textarea {
+  resize: none;
+  display: block;
+  width: 8.88rem;
+  border: none;
+  margin: 0 auto;
+  font-size: 0.373333rem;
+  padding: 0.2rem 0;
+  height: 3.653333rem;
+  border-bottom: 2px solid #f6f6f6;
+}
+.img_file {
+  display:inline-block;
+  width: 2.8rem;
+  height: 2.173333rem;
+  margin-right: 0.24rem;
+  margin-bottom: 0.2rem;
+}
+ .list-img-close {
+    background: url(../../../assets/images/login-close.png) no-repeat right top;
+    border-color: #ff4a00;
+    background-position: center;
+    background-size: 35px 35px;
+    display: block;
+    float: left;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 3%;
+    left: 75%;
+    margin-top: 0px;
+    margin-left: 0px;
+    padding: 2px 5px;
+    z-index: 10;
+    border-radius: 5px;
+    text-align: center;
+  }
+.img-box {
+  width: 10rem;
+  padding-bottom: 0.3rem;
+  background: #fff;
+}
+.img-upload {
+  width: 8.88rem;
+  margin: 0.2rem auto 0;
+}
+
+.list-ul {
+    list-style: none;
+    /* 去掉ul前面的符号 */
+    margin: 0px;
+    /* 与外界元素的距离为0 */
+    padding: 2px;
+    /* 与内部元素的距离为0 */
+    width: auto;
+    /* 宽度根据元素内容调整 */
+  }
+
+  /* 所有class为menu的div中的ul中的li样式 */
+
+  .list-li {
+    float: left;
+    /* 向左漂移，将竖排变为横排 */
+    padding: 2px;
+    /* 与内部元素的距离为0 */
+    display: inline-block;
+    position: relative;
+    text-align: center;
+  }
+
+
+  .list-link img {
+    width: 100px;
+    height: 100px;
+  }
+
+
+  .list-link a:visited {
+    background-color: #465c71;
+    /* 背景色 */
+    border: 1px #4e667d solid;
+    /* 边框 */
+    color: #dde4ec;
+    /* 文字颜色 */
+    display: flex;
+    /* 此元素将显示为块级元素，此元素前后会带有换行符 */
+    line-height: 1.35em;
+    /* 行高 */
+    padding: 4px 20px;
+    /* 内部填充的距离 */
+    text-decoration: none;
+    /* 不显示超链接下划线 */
+    white-space: nowrap;
+    /* 对于文本内的空白处，不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
+    overflow: hidden;
+  }
+
+  /* 所有class为menu的div中的ul中的a样式(鼠标移动到元素中的样式) */
+
+  .list-link a:hover {
+    background-color: #bfcbd6;
+    /* 背景色 */
+    color: #465c71;
+    /* 文字颜色 */
+    text-decoration: none;
+    /* 不显示超链接下划线 */
+  }
+
+  /* 所有class为menu的div中的ul中的a样式(鼠标点击元素时的样式) */
+
+  .list-link a:active {
+    background-color: #465c71;
+    /* 背景色 */
+    color: #cfdbe6;
+    /* 文字颜色 */
+    text-decoration: none;
+    /* 不显示超链接下划线 */
+  }
+
+  .add-img {
+    display: block;
+    background-image: url('../../../assets/images/upload.png');
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: 100px 100px;
+  }
+
+.form-bottom {
+  background: #fff;
+  margin-top: 0.1rem;
+  padding-bottom: .2rem;
+}
+.form-bottom .mint-cell {
+  margin: 0 0.56rem;
+}
+.form-bottom .mint-cell-allow-right {
+  margin-left: 0.2rem;
+}
+.form-bottom .date {
+  color: #000;
+}
+.form-bottom .tag {
+  margin: 0 0.15rem;
+}
+.form-bottom .mint-button{
+  width: 8rem;
+  margin: .2rem auto 0;
+  font-size: .4rem;
+  color:#fff;
+  background: #BA0404;
+}
+</style>
+
+
