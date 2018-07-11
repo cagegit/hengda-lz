@@ -17,12 +17,12 @@
 
                       <li class="list-li" v-for="(img, index) in options.imgs" :key="index">
                         <a class="list-link" @click='previewImage(img)'>
-                          <img class="img_file" :src="img" alt=""> 
+                          <img class="img_file" :src="img" alt="">
                         </a>
 				                <span class="list-img-close" @click='delImage(index)'></span>
 		                	</li>
 
-                         <img class="img_file" v-for="(img,index) in options.imgs" :key="index" :src="img" alt=""> 
+                         <img class="img_file" v-for="(img,index) in options.imgs" :key="index" :src="img" alt="">
                         <span class="img_upload_btn" v-if="!options.imgs.length" @click="upload" src="@/assets/images/upload.png" alt="">
                         <img class="img_upload_btn_normal" v-else @click="upload" src="@/assets/images/upload.png" alt="" >
                     </div> -->
@@ -32,7 +32,7 @@
                   <ul class="list-ul">
                       <li class="list-li" v-for="(img, index) in options.imgs" :key="index">
                         <a class="list-link" @click='previewImage(img)'>
-                          <img class="img_file" :src="img" alt=""/> 
+                          <img class="img_file" :src="img" alt=""/>
                         </a>
 				                <span class="list-img-close" @click='delImage(index)'></span>
 		                	</li>
@@ -41,7 +41,7 @@
                     </li>
                   </ul>
 
-                   
+
                 </div>
                 <input type="file" name="fileUpload" id="fileUp" @change="change($event)" ref="inputFile" >
                 </div>
@@ -77,8 +77,8 @@
                 ref="end" v-model="options.endTime"></mt-datetime-picker>
           </div>
           <Picker :data="typeList" ref="type" @confirm="getType" title="请选择通知类型"/>
-          <Picker :data="objectList" ref="object" @confirm="getObject" title="请选择通知对象"/> 
-          <Picker :data="commentList" ref="comment" @confirm="getComment" title="是否开放评论"/>     
+          <Picker :data="objectList" ref="object" @confirm="getObject" title="请选择通知对象"/>
+          <Picker :data="commentList" ref="comment" @confirm="getComment" title="是否开放评论"/>
         </div>
     </div>
 </template>
@@ -181,7 +181,7 @@ export default {
       return `${year}/${month}/${day}`;
     }
   },
- 
+
   methods: {
      change:function(event){
         this.file = event.target.files[0];
@@ -199,40 +199,40 @@ export default {
     },
     a_callback_one(a,b){
     //  this.getimage(b);
-      this.options.imgs.push("static/images/p4.png");    
-      this.options.imgs.push("static/images/p5.png"); 
+      this.options.imgs.push("static/images/p4.png");
+      this.options.imgs.push("static/images/p5.png");
     },
-    dataURLtoFile: function (dataurl, filename) {  
-      var arr = dataurl.split(',')  
-      var mime = arr[0].match(/:(.*?);/)[1]  
-      var bstr = window.atob(arr[1])  
-      var n = bstr.length  
-      var u8arr = new Uint8Array(n)  
-      while (n--) {  
-        u8arr[n] = bstr.charCodeAt(n)  
-      }  
-      var blob = new Blob([u8arr], {type: mime})  
-      blob.lastModifiedDate = new Date()  
-      blob.name = filename  
-      return blob  
+    dataURLtoFile: function (dataurl, filename) {
+      var arr = dataurl.split(',')
+      var mime = arr[0].match(/:(.*?);/)[1]
+      var bstr = window.atob(arr[1])
+      var n = bstr.length
+      var u8arr = new Uint8Array(n)
+      while (n--) {
+        u8arr[n] = bstr.charCodeAt(n)
+      }
+      var blob = new Blob([u8arr], {type: mime})
+      blob.lastModifiedDate = new Date()
+      blob.name = filename
+      return blob
     }  ,
     //发布通知
     issue(){
 
-let file1 = this.dataURLtoFile('data:image/jpeg;base64,' + imageURI, 'test.jpeg')  
+let file1 = this.dataURLtoFile('data:image/jpeg;base64,' + imageURI, 'test.jpeg')
 
 console.log("issue upload File begin");
           //创建formdata
                 let formData = new FormData();
-                formData.append('filename', 'p4.png');              
+                formData.append('filename', 'p4.png');
                 formData.append('file', this.file);
 
 
-                Api.post('/sp/files/images/IndustrialBase/z29f73527c568000?note=12443',formData,{headers :{'Content-Type': 'multipart/form-data'},}).then(rep => { 
+                Api.post('/sp/files/images/IndustrialBase/z29f73527c568000?note=12443',formData,{headers :{'Content-Type': 'multipart/form-data'},}).then(rep => {
 
                     console.log("wlq");
                      console.log(rep.data);
-                    
+
                     if(rep.data == true){
                         Indicator.close();
                         this.$router.replace('/main')
@@ -261,8 +261,8 @@ console.log("issue upload File beginend ");
         navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
             destinationType: Camera.DestinationType.FILE_URI,sourceType:nSourceType });
 
-        function onSuccess(imageURI) { 
-            this.options.imgs.push.push(imageURI);        
+        function onSuccess(imageURI) {
+            this.options.imgs.push.push(imageURI);
            // me.imgsrc = imageURI;
         }
 
@@ -273,7 +273,11 @@ console.log("issue upload File beginend ");
    delImage: function (index) {
         let vm = this;
 
-        MessageBox.confirm("确定删除该图片?").then(action => {});
+        MessageBox.confirm("确定删除该图片?").then(action => {
+            console.log(true);
+        },() => {
+            console.log(false);
+        });
 
         // vm.$vux.confirm.show({
         //   title: '确定删除该图片?',
@@ -332,7 +336,7 @@ console.log("issue upload File beginend ");
     height: 100px;
   }
 
- 
+
   .list-link a:visited {
     background-color: #465c71;
     /* 背景色 */

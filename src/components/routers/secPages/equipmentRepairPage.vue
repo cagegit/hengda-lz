@@ -20,51 +20,60 @@
                 <mt-tab-container-item id="info">
                   <div class="build-form">
 
-                  <div class="form-top">
+                  <div class="form-bottom">
                         <div>
                             <textarea placeholder="请描述您要报修的详情"></textarea>
-                           <a href="javascript:void(0);" class="upload-area">
-                             <input type="file" class="upload-pic-info">
+                           <a href="javascript:void(0);" class="upload-area" @click.stop="uploadPic()">
+                             <!--<input type="file" class="upload-pic-info">-->
                            </a>
+                          <ul class="pic-ul">
+                            <li v-for="(img, index) in options.imgs" :key="index">
+                              <a class="list-link" @click='previewImage(img)'>
+                                <img  style="border: none;" :src="img" alt=""/>
+                              </a>
+                              <span class="list-img-close" @click='delImage(img)'></span>
+                            </li>
+                            </ul>
                       </div>
-                    </div>
-
-                    <div class="form-mid">
-                           <!--    <div class="img-box">
-                              <ul class="list-ul">
-                                  <li class="list-li" v-for="(img, index) in options.imgs" :key="index">
-                                    <a class="list-link" @click='previewImage(img)'>
-                                      <img class="img_file" :src="img" alt=""/>
-                                    </a>
-                                    <span class="list-img-close" @click='delImage(index)'></span>
-                                  </li>
-                                <li class="list-li">
-                                  <span class="add-img" @click.stop="upload" src="@/assets/images/upload.png" alt="" > </span>
-                                </li>
-                              </ul>
-                          </div>  -->
-                    </div>
-
-                    <div class="form-bottom">
-                        <mt-cell title="请选择报修的类型" class="cell-bottom-hr">
+                        <mt-cell title="请选择报修的类型" class="cell-bottom-hr cell-top-hr">
                           <span></span>
-                          <img slot="icon" src="@/assets/images/xl.png" style="display: inline-block;" width="24" height="24">
+                          <img slot="icon" src="@/assets/images/xl.png" class="rp-icon-wh" >
                         </mt-cell>
                         <mt-cell is-link title="立即处理" @click="pickerOpen('start')" :value="options.type">
                           <span>另约时间</span>
-                          <img slot="icon" src="@/assets/images/rl.png" style="display: inline-block;" width="24" height="24">
+                          <img slot="icon" src="@/assets/images/rl.png" class="rp-icon-wh">
                         </mt-cell>
                     </div>
+
+                    <!--<div class="form-mid">-->
+                           <!--&lt;!&ndash;    <div class="img-box">-->
+                              <!--<ul class="list-ul">-->
+                                  <!--<li class="list-li" v-for="(img, index) in options.imgs" :key="index">-->
+                                    <!--<a class="list-link" @click='previewImage(img)'>-->
+                                      <!--<img class="img_file" :src="img" alt=""/>-->
+                                    <!--</a>-->
+                                    <!--<span class="list-img-close" @click='delImage(index)'></span>-->
+                                  <!--</li>-->
+                                <!--<li class="list-li">-->
+                                  <!--<span class="add-img" @click.stop="upload" src="@/assets/images/upload.png" alt="" > </span>-->
+                                <!--</li>-->
+                              <!--</ul>-->
+                          <!--</div>  &ndash;&gt;-->
+                    <!--</div>-->
+
+                    <!--<div class="form-bottom">-->
+                        <!---->
+                    <!--</div>-->
                     <h5>联系人</h5>
                     <div class="form-bottom">
-                        <mt-cell title="王老五" class="cell-bottom-hr">
-                          <img slot="icon" src="@/assets/images/user.png" style="display: inline-block;" width="24" height="24">
+                        <mt-cell title="王老五" class="cell-bottom-hr cell-bt-txt">
+                          <img slot="icon" src="@/assets/images/user.png" class="rp-icon-wh">
                         </mt-cell>
                         <mt-cell title="15260982325" class="cell-bottom-hr">
-                          <img slot="icon" src="@/assets/images/phone.png" style="display: inline-block;" width="24" height="24">
+                          <img slot="icon" src="@/assets/images/phone.png" class="rp-icon-wh">
                         </mt-cell>
                         <mt-cell is-link  title="5号楼3单元602室">
-                          <img slot="icon" src="@/assets/images/address.png" style="display: inline-block;" width="24" height="24">
+                          <img slot="icon" src="@/assets/images/address.png" class="rp-icon-wh">
                         </mt-cell>
                     </div>
                     <div class="form-bottom">
@@ -77,7 +86,7 @@
                        <div class="rp-card">
                          <div class="rp-card-row">
                            <div>
-                             <img src="@/assets/images/bx1.png" class="rp-icon" width="24" height="24">
+                             <img src="@/assets/images/bx1.png" class="rp-icon">
                              <span class="rp-icon-txt">房屋维修</span>
                            </div>
                            <div style="line-height: 24px" class="rp-right-top">
@@ -104,7 +113,7 @@
                   <div class="rp-card">
                     <div class="rp-card-row">
                       <div>
-                        <img src="@/assets/images/bx2.png" class="rp-icon" width="24" height="24">
+                        <img src="@/assets/images/bx2.png" class="rp-icon">
                         <span class="rp-icon-txt">水电燃气</span>
                       </div>
                       <div style="line-height: 24px" class="rp-right-top">
@@ -131,7 +140,7 @@
                     <div class="rp-card">
                       <div class="rp-card-row">
                         <div>
-                          <img src="@/assets/images/bx3.png" class="rp-icon" width="24" height="24">
+                          <img src="@/assets/images/bx3.png" class="rp-icon">
                           <span class="rp-icon-txt">公共设施</span>
                         </div>
                         <div style="line-height: 24px" class="rp-right-top">
@@ -164,7 +173,7 @@
                     <div class="rp-card">
                       <div class="rp-card-row">
                         <div>
-                          <img src="@/assets/images/bx1.png" class="rp-icon" width="24" height="24">
+                          <img src="@/assets/images/bx1.png" class="rp-icon">
                           <span class="rp-icon-txt">房屋维修</span>
                         </div>
                         <div style="line-height: 24px" class="rp-right-top">
@@ -180,7 +189,7 @@
                         </div>
                       </div>
                       <div class="rp-card-row-start">
-                           <span style="padding-right: 20px;">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                           <span class="rp-fw">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
                       </div>
                     </div>
                   </div>
@@ -188,7 +197,7 @@
                     <div class="rp-card">
                       <div class="rp-card-row">
                         <div>
-                          <img src="@/assets/images/bx2.png" class="rp-icon" width="24" height="24">
+                          <img src="@/assets/images/bx2.png" class="rp-icon">
                           <span class="rp-icon-txt">水电燃气</span>
                         </div>
                         <div style="line-height: 24px" class="rp-right-top">
@@ -204,7 +213,7 @@
                         </div>
                       </div>
                       <div class="rp-card-row-start">
-                        <span style="padding-right: 20px;">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                        <span  class="rp-fw">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
                       </div>
                     </div>
                   </div>
@@ -212,7 +221,7 @@
                     <div class="rp-card">
                       <div class="rp-card-row">
                         <div>
-                          <img src="@/assets/images/bx3.png" class="rp-icon" width="24" height="24">
+                          <img src="@/assets/images/bx3.png" class="rp-icon">
                           <span class="rp-icon-txt">公共设施</span>
                         </div>
                         <div style="line-height: 24px" class="rp-right-top">
@@ -228,7 +237,7 @@
                         </div>
                       </div>
                       <div class="rp-card-row-start">
-                        <span style="padding-right: 20px;">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                        <span  class="rp-fw">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
                       </div>
                     </div>
                   </div>
@@ -236,7 +245,7 @@
                     <div class="rp-card">
                       <div class="rp-card-row">
                         <div>
-                          <img src="@/assets/images/bx3.png" class="rp-icon" width="24" height="24">
+                          <img src="@/assets/images/bx3.png" class="rp-icon">
                           <span class="rp-icon-txt">公共设施</span>
                         </div>
                         <div style="line-height: 24px" class="rp-right-top">
@@ -252,7 +261,7 @@
                         </div>
                       </div>
                       <div class="rp-card-row-start">
-                        <span style="padding-right: 20px;">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                        <span class="rx-fw">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
                       </div>
                     </div>
                   </div>
@@ -260,7 +269,7 @@
                     <div class="rp-card">
                       <div class="rp-card-row">
                         <div>
-                          <img src="@/assets/images/bx3.png" class="rp-icon" width="24" height="24">
+                          <img src="@/assets/images/bx3.png" class="rp-icon">
                           <span class="rp-icon-txt">公共设施</span>
                         </div>
                         <div style="line-height: 24px" class="rp-right-top">
@@ -276,26 +285,25 @@
                         </div>
                       </div>
                       <div class="rp-card-row-start">
-                        <span style="padding-right: 20px;">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                        <span  class="rp-fw">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
                       </div>
                     </div>
                   </div>
                 </mt-tab-container-item>
             </mt-tab-container>
         </div>
+      <div class="actions-box">
+        <mt-actionsheet :actions="actions" cancelText="取消" v-model="sheetVisible"></mt-actionsheet>
+      </div>
     </div>
 </template>
 <script>
 
 import { MessageBox } from 'mint-ui';
-import { Card,Button } from 'vant'
+//import { Card,Button } from 'vant'
 
 export default {
   name: "equipmentRepairPage",
-  components: {
-    [Card.name]: Card,
-    [Button.name]: Button
-  },
   data() {
     return {
       selected: "info",
@@ -363,6 +371,17 @@ export default {
           path: "#"
         }
       ],
+      actions:[
+        {
+          name:"拍照",
+          method:this.a_callback_one
+        },
+        {
+          name:'从相册中选择',
+          method:this.a_callback_one
+        }
+      ],
+      sheetVisible: false,
       options: {
         title: "",
         zy: "",
@@ -371,10 +390,7 @@ export default {
         endTime: "2018/06/12",
         object: "恒大集团事业部",
         comment: "是",
-        imgs: [
-          "static/images/p4.png",
-          "static/images/p5.png"
-        ]
+        imgs: []
       },
     };
   },
@@ -387,6 +403,26 @@ export default {
     },
     pickerOpen(type) {
       console.log(type);
+    },
+    a_callback_one(a,b){
+      //  this.getimage(b);
+      this.options.imgs.push("static/images/p4.png");
+      this.options.imgs.push("static/images/p5.png");
+    },
+    uploadPic() {
+      this.sheetVisible = true;
+    },
+    delImage: function (v) {
+      const that = this;
+      MessageBox.confirm("确定删除该图片?").then(action => {
+        console.log(action);
+        console.log(true);
+        let index = that.options.imgs.findIndex((val) => val === v);
+        that.options.imgs.splice(index,1);
+      },() => {
+        console.log(false);
+      });
+
     }
   }
 };
@@ -570,11 +606,11 @@ h5{
 .build-form textarea {
   resize: none;
   display: block;
-  width: 8.78rem;
+  width: 646px;
   border: none;
   margin: 0 auto;
   font-size: 0.373333rem;
-  padding: 0.2rem 0;
+  padding: 0.56rem 0;
   height: 3.653333rem;
   /*border-bottom: 2px solid #f6f6f6;*/
 }
@@ -726,7 +762,9 @@ h5{
   width: 100px;
   height: 100px;
   margin-left: 0.56rem;
-  background: url('../../../assets/images/sc.png') transparent no-repeat;
+  margin-bottom: 5px;
+  background: url('../../../assets/images/sc.png') center no-repeat;
+  background-size: contain;
   border: none;
   overflow: hidden;
   color: #1E88C7;
@@ -745,13 +783,20 @@ h5{
   .cell-bottom-hr {
     border-bottom: 1px solid #dadada;
   }
+  .cell-top-hr {
+    border-top: 1px solid #dadada;
+  }
+  .cell-bt-txt{
+    font-size: 28px !important;
+  }
   .repairBtn {
     background: #FD2D00 !important;
     color: #fff !important;
     border-radius: 78px;
     /*font-size: 16px !important;;*/
-    height: 1.1rem;
-    line-height: 1.1rem;
+    font-size: 32px !important;
+    height: 92px;
+    line-height: 92px;
   }
   .rp-card {
     display: flex;
@@ -775,39 +820,47 @@ h5{
     margin-top: 5px;
     flex-basis: 100%;
   }
+  .rp-icon-wh {
+    width: 25px;
+    height: 26px;
+    display: inline-block;
+  }
   .rp-jj {
     padding-bottom: 5px;
     margin: 5px 0;
   }
   .rp-bx-btn {
-    width: 100px;
+    width: 140px;
     border-radius: 65px;
-    font-size: 12px;
     background: #fff;
     color:#4A4A4A;
     border: none;
-    height: 30px;
-    line-height: 30px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 26px;
   }
   .rp-bx-cancel {
     border: 1px solid #979797;
     color: #979797;
   }
   .rp-bx-done {
-    margin-left: 5px;
+    margin-left: 20px;
     border: 1px solid #FD2D00;
     color: #FD2D00;
   }
   .rp-right-top {
-    line-height: 24px;
+    font-size: 28px;
+    line-height: 28px;
     color: #FD2D00;
   }
   .rp-icon {
     display: inline-block;
     vertical-align: bottom;
+    width: 39px;
+    height: 36px;
   }
   .rp-icon-txt {
-    font-size: 14px;
+    font-size: 28px;
     font-weight: bold;
     line-height: 24px;
     padding-left: 5px;
@@ -815,13 +868,14 @@ h5{
   .rp-lf-img {
     padding: 5px 10px 5px 0;
     width: 30%;
-    height: 80px;
+    height: 125px;
   }
   .rp-lf-desc {
     word-break: break-all;
-    max-height: 55px;
+    max-height: 120px;
     overflow: hidden;
     color:  #4A4A4A;
+    font-size: 26px;
   }
   .rp-bx-bottom {
     margin: 20px 0;
@@ -829,12 +883,39 @@ h5{
   }
   .rp-bx-bottom a {
     color: #4A4A4A;
-    font-size: 0.25rem;
+    font-size: 26px;
   }
   .rp-timestamp {
     color: #9B9B9B;
-    line-height: 18px;
+    font-size: 24px;
+    line-height: 42px;
   }
+  .rp-fw {
+    padding-right: 20px;
+    font-size: 26px;
+  }
+.actions-box{
+  width: 10rem;
+  position: fixed;
+  bottom: 0;
+}
+.actions-box .mint-actionsheet{
+  position: absolute;
+}
+.pic-ul {
+ display: inline-block;
+  margin-left: 0.56rem;
+}
+.pic-ul li {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  position: relative;
+}
+.pic-ul li img {
+  width: 100px;
+  height: 100px;
+}
 </style>
 
 
