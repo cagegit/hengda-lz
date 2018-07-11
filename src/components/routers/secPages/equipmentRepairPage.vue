@@ -28,7 +28,7 @@
                            </a>
                           <ul class="pic-ul">
                             <li v-for="(img, index) in options.imgs" :key="index">
-                              <a class="list-link" @click='previewImage(img)'>
+                              <a class="list-link">
                                 <img  style="border: none;" :src="img" alt=""/>
                               </a>
                               <span class="list-img-close" @click='delImage(img)'></span>
