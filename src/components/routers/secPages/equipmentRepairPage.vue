@@ -261,7 +261,7 @@
                         </div>
                       </div>
                       <div class="rp-card-row-start">
-                        <span class="rx-fw">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                        <span class="rp-fw">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
                       </div>
                     </div>
                   </div>
