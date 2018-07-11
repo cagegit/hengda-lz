@@ -23,10 +23,10 @@
                   <div class="form-top">
                         <div>
                             <textarea placeholder="请描述您要报修的详情"></textarea>
+                           <a href="javascript:void(0);" class="upload-area">
+                             <input type="file" class="upload-pic-info">
+                           </a>
                       </div>
-                      <van-uploader :after-read="onRead">
-                        <van-icon name="photograph" />
-                      </van-uploader>
                     </div>
 
                     <div class="form-mid">
@@ -46,51 +46,240 @@
                     </div>
 
                     <div class="form-bottom">
-                        <mt-cell is-link title="请选择报修的类型" @click.native="pickerOpen('type')" :value="options.type"></mt-cell>
-                        <mt-cell is-link title="立即处理" @click="pickerOpen('start')" :value="options.type"> </mt-cell>
+                        <mt-cell title="请选择报修的类型" class="cell-bottom-hr">
+                          <span></span>
+                          <img slot="icon" src="@/assets/images/xl.png" style="display: inline-block;" width="24" height="24">
+                        </mt-cell>
+                        <mt-cell is-link title="立即处理" @click="pickerOpen('start')" :value="options.type">
+                          <span>另约时间</span>
+                          <img slot="icon" src="@/assets/images/rl.png" style="display: inline-block;" width="24" height="24">
+                        </mt-cell>
                     </div>
                     <h5>联系人</h5>
                     <div class="form-bottom">
-                        <mt-cell is-link  :value="options.type"></mt-cell>
-                        <mt-cell is-link @click.native="pickerOpen('object')" title="通知对象" :value="options.object"></mt-cell>
-                        <mt-cell is-link  :value="地址22"></mt-cell>
-                        <mt-button size="large" @click.native="issue">提交</mt-button>
+                        <mt-cell title="王老五" class="cell-bottom-hr">
+                          <img slot="icon" src="@/assets/images/user.png" style="display: inline-block;" width="24" height="24">
+                        </mt-cell>
+                        <mt-cell title="15260982325" class="cell-bottom-hr">
+                          <img slot="icon" src="@/assets/images/phone.png" style="display: inline-block;" width="24" height="24">
+                        </mt-cell>
+                        <mt-cell is-link  title="5号楼3单元602室">
+                          <img slot="icon" src="@/assets/images/address.png" style="display: inline-block;" width="24" height="24">
+                        </mt-cell>
                     </div>
-
+                    <div class="form-bottom">
+                      <mt-button size="large" class="repairBtn">提交</mt-button>
+                    </div>
                     </div>
                 </mt-tab-container-item>
                 <mt-tab-container-item id="stuff">
-                    <!-- <div class="stuff-wrapper">
-                        <mt-cell v-for="(item,index) in stuff" :key="index" :to="item.path" is-link :title="item.label"></mt-cell>
-
-                    </div> -->
-                    <!-- <div class="review-container">
-                        <div class="review-item" v-for="(item,index) in reviewList[selected].valueList" :key="index">
-                            <div class="item-title">
-                                <p class="title-left">{{item.title}}</p>
-                                <p class="title-right">待处理</p>
+                  <div class="form-bottom">
+                       <div class="rp-card">
+                         <div class="rp-card-row">
+                           <div>
+                             <img src="@/assets/images/bx1.png" class="rp-icon" width="24" height="24">
+                             <span class="rp-icon-txt">房屋维修</span>
+                           </div>
+                           <div style="line-height: 24px" class="rp-right-top">
+                             待处理
+                           </div>
+                         </div>
+                           <div class="rp-card-row cell-bottom-hr rp-jj" >
+                             <img src="@/assets/images/bx-lf.png" class="rp-lf-img">
+                             <div>
+                               <p class="rp-lf-desc">
+                                 我家墙皮脱落的特别严重，粘好的门框子也掉了，前几天经过还导致划伤，希望有关部门处理一下！</p>
+                               <p class="rp-timestamp">2018-07-10</p>
+                             </div>
+                           </div>
+                            <div class="rp-card-row-end">
+                              <div>
+                                <button size="small" class="rp-bx-btn rp-bx-cancel" >取消报修</button>
+                                <button size="small" class="rp-bx-btn rp-bx-done" >完成报修</button>
+                              </div>
                             </div>
-                            <div class="item-flow">墙皮脱落严重墙皮脱落严重墙皮脱落严重墙皮脱落严重墙皮脱落严重</div>
-                            <div class="item-time">承诺时间：{{item.time}}</div>
-
-
-                            <mt-button  @click.native="approval(item)">取消报修</mt-button>
-                            <mt-button  @click.native="approval(item)">完成报修</mt-button>
+                       </div>
+                  </div>
+                  <div class="form-bottom">
+                  <div class="rp-card">
+                    <div class="rp-card-row">
+                      <div>
+                        <img src="@/assets/images/bx2.png" class="rp-icon" width="24" height="24">
+                        <span class="rp-icon-txt">水电燃气</span>
+                      </div>
+                      <div style="line-height: 24px" class="rp-right-top">
+                        待处理
+                      </div>
+                    </div>
+                    <div class="rp-card-row cell-bottom-hr rp-jj" >
+                      <img src="@/assets/images/bx-lf.png"  class="rp-lf-img">
+                      <div>
+                        <p  class="rp-lf-desc">
+                          我家水管漏水特别严重！水管开裂，还不是水龙头的问题，水管遇热严重变形，多处漏水！</p>
+                        <p class="rp-timestamp">2018-07-10</p>
+                      </div>
+                    </div>
+                    <div class="rp-card-row-end">
+                      <div>
+                        <button size="small" class="rp-bx-btn rp-bx-cancel" >取消报修</button>
+                        <button size="small" class="rp-bx-btn rp-bx-done" >完成报修</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <div class="form-bottom">
+                    <div class="rp-card">
+                      <div class="rp-card-row">
+                        <div>
+                          <img src="@/assets/images/bx3.png" class="rp-icon" width="24" height="24">
+                          <span class="rp-icon-txt">公共设施</span>
                         </div>
-                    </div> -->
+                        <div style="line-height: 24px" class="rp-right-top">
+                          待处理
+                        </div>
+                      </div>
+                      <div class="rp-card-row cell-bottom-hr rp-jj" >
+                        <!--<img src="@/assets/images/bx-lf.png" height="80px" style="padding: 5px;width: 30%;">-->
+                        <div>
+                          <p  class="rp-lf-desc">
+                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</p>
+                          <p  class="rp-timestamp">2018-07-10</p>
+                        </div>
+                      </div>
+                      <div class="rp-card-row-end">
+                        <div>
+                          <button size="small" class="rp-bx-btn rp-bx-cancel" >取消报修</button>
+                          <button size="small" class="rp-bx-btn rp-bx-done" >完成报修</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="rp-bx-bottom">
+                     <a href="javascript:void(0)">查看已完成报修 >></a>
+                  </div>
 
                 </mt-tab-container-item>
                 <mt-tab-container-item id="state">
-                      <!-- <div class="review-container">
-                        <div class="review-item" v-for="(item,index) in reviewList[selected].valueList" :key="index">
-                            <div class="item-title">
-                                <p class="title-left">{{item.title}}</p>
-                                <p class="title-right">已处理</p>
-                            </div>
-                            <div class="item-flow">墙皮脱落严重墙皮脱落严重墙皮脱落严重墙皮脱落严重墙皮脱落严重</div>
-                            <div class="item-time">服务时间：{{item.time}}</div>
+                  <div class="form-bottom">
+                    <div class="rp-card">
+                      <div class="rp-card-row">
+                        <div>
+                          <img src="@/assets/images/bx1.png" class="rp-icon" width="24" height="24">
+                          <span class="rp-icon-txt">房屋维修</span>
                         </div>
-                    </div> -->
+                        <div style="line-height: 24px" class="rp-right-top">
+                          已处理
+                        </div>
+                      </div>
+                      <div class="rp-card-row cell-bottom-hr rp-jj" >
+                        <img src="@/assets/images/bx-lf.png" class="rp-lf-img">
+                        <div>
+                          <p class="rp-lf-desc">
+                            我家墙皮脱落的特别严重，粘好的门框子也掉了，前几天经过还导致划伤，希望有关部门处理一下！</p>
+                          <p  class="rp-timestamp">2018-07-10</p>
+                        </div>
+                      </div>
+                      <div class="rp-card-row-start">
+                           <span style="padding-right: 20px;">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-bottom">
+                    <div class="rp-card">
+                      <div class="rp-card-row">
+                        <div>
+                          <img src="@/assets/images/bx2.png" class="rp-icon" width="24" height="24">
+                          <span class="rp-icon-txt">水电燃气</span>
+                        </div>
+                        <div style="line-height: 24px" class="rp-right-top">
+                          已处理
+                        </div>
+                      </div>
+                      <div class="rp-card-row cell-bottom-hr rp-jj" >
+                        <img src="@/assets/images/bx-lf.png" class="rp-lf-img">
+                        <div>
+                          <p class="rp-lf-desc">
+                            我家水管漏水特别严重！水管开裂，还不是水龙头的问题，水管遇热严重变形，多处漏水！</p>
+                          <p  class="rp-timestamp">2018-07-10</p>
+                        </div>
+                      </div>
+                      <div class="rp-card-row-start">
+                        <span style="padding-right: 20px;">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-bottom">
+                    <div class="rp-card">
+                      <div class="rp-card-row">
+                        <div>
+                          <img src="@/assets/images/bx3.png" class="rp-icon" width="24" height="24">
+                          <span class="rp-icon-txt">公共设施</span>
+                        </div>
+                        <div style="line-height: 24px" class="rp-right-top">
+                          待处理
+                        </div>
+                      </div>
+                      <div class="rp-card-row cell-bottom-hr rp-jj" >
+                        <!--<img src="@/assets/images/bx-lf.png" height="80px" style="padding: 5px;width: 30%;">-->
+                        <div>
+                          <p  class="rp-lf-desc">
+                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</p>
+                          <p  class="rp-timestamp">2018-07-10</p>
+                        </div>
+                      </div>
+                      <div class="rp-card-row-start">
+                        <span style="padding-right: 20px;">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-bottom">
+                    <div class="rp-card">
+                      <div class="rp-card-row">
+                        <div>
+                          <img src="@/assets/images/bx3.png" class="rp-icon" width="24" height="24">
+                          <span class="rp-icon-txt">公共设施</span>
+                        </div>
+                        <div style="line-height: 24px" class="rp-right-top">
+                          待处理
+                        </div>
+                      </div>
+                      <div class="rp-card-row cell-bottom-hr rp-jj" >
+                        <!--<img src="@/assets/images/bx-lf.png" height="80px" style="padding: 5px;width: 30%;">-->
+                        <div>
+                          <p  class="rp-lf-desc">
+                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</p>
+                          <p  class="rp-timestamp">2018-07-10</p>
+                        </div>
+                      </div>
+                      <div class="rp-card-row-start">
+                        <span style="padding-right: 20px;">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-bottom">
+                    <div class="rp-card">
+                      <div class="rp-card-row">
+                        <div>
+                          <img src="@/assets/images/bx3.png" class="rp-icon" width="24" height="24">
+                          <span class="rp-icon-txt">公共设施</span>
+                        </div>
+                        <div style="line-height: 24px" class="rp-right-top">
+                          待处理
+                        </div>
+                      </div>
+                      <div class="rp-card-row cell-bottom-hr rp-jj" >
+                        <!--<img src="@/assets/images/bx-lf.png" height="80px" style="padding: 5px;width: 30%;">-->
+                        <div>
+                          <p  class="rp-lf-desc">
+                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</p>
+                          <p  class="rp-timestamp">2018-07-10</p>
+                        </div>
+                      </div>
+                      <div class="rp-card-row-start">
+                        <span style="padding-right: 20px;">服务时间</span> <span class="rp-timestamp">2018-09-10</span>
+                      </div>
+                    </div>
+                  </div>
                 </mt-tab-container-item>
             </mt-tab-container>
         </div>
@@ -99,12 +288,13 @@
 <script>
 
 import { MessageBox } from 'mint-ui';
-import { Uploader } from 'vant'
+import { Card,Button } from 'vant'
 
 export default {
   name: "equipmentRepairPage",
   components: {
-    [Uploader.name]: Uploader
+    [Card.name]: Card,
+    [Button.name]: Button
   },
   data() {
     return {
@@ -380,13 +570,13 @@ h5{
 .build-form textarea {
   resize: none;
   display: block;
-  width: 8.88rem;
+  width: 8.78rem;
   border: none;
   margin: 0 auto;
   font-size: 0.373333rem;
   padding: 0.2rem 0;
   height: 3.653333rem;
-  border-bottom: 2px solid #f6f6f6;
+  /*border-bottom: 2px solid #f6f6f6;*/
 }
 .img_file {
   display:inline-block;
@@ -530,6 +720,121 @@ h5{
   color:#fff;
   background: #BA0404;
 }
+.upload-area{
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin-left: 0.56rem;
+  background: url('../../../assets/images/sc.png') transparent no-repeat;
+  border: none;
+  overflow: hidden;
+  color: #1E88C7;
+  text-decoration: none;
+  text-indent: 0;
+  line-height: 20px;
+}
+.upload-area input {
+  position: absolute;
+  font-size: 100px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer
+  }
+  .cell-bottom-hr {
+    border-bottom: 1px solid #dadada;
+  }
+  .repairBtn {
+    background: #FD2D00 !important;
+    color: #fff !important;
+    border-radius: 78px;
+    /*font-size: 16px !important;;*/
+    height: 1.1rem;
+    line-height: 1.1rem;
+  }
+  .rp-card {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2rem 0.2rem 0;
+  }
+  .rp-card-row {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 100%;
+  }
+  .rp-card-row-end {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+    flex-basis: 100%;
+  }
+  .rp-card-row-start {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+    flex-basis: 100%;
+  }
+  .rp-jj {
+    padding-bottom: 5px;
+    margin: 5px 0;
+  }
+  .rp-bx-btn {
+    width: 100px;
+    border-radius: 65px;
+    font-size: 12px;
+    background: #fff;
+    color:#4A4A4A;
+    border: none;
+    height: 30px;
+    line-height: 30px;
+  }
+  .rp-bx-cancel {
+    border: 1px solid #979797;
+    color: #979797;
+  }
+  .rp-bx-done {
+    margin-left: 5px;
+    border: 1px solid #FD2D00;
+    color: #FD2D00;
+  }
+  .rp-right-top {
+    line-height: 24px;
+    color: #FD2D00;
+  }
+  .rp-icon {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+  .rp-icon-txt {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    padding-left: 5px;
+  }
+  .rp-lf-img {
+    padding: 5px 10px 5px 0;
+    width: 30%;
+    height: 80px;
+  }
+  .rp-lf-desc {
+    word-break: break-all;
+    max-height: 55px;
+    overflow: hidden;
+    color:  #4A4A4A;
+  }
+  .rp-bx-bottom {
+    margin: 20px 0;
+    text-align: center;
+  }
+  .rp-bx-bottom a {
+    color: #4A4A4A;
+    font-size: 0.25rem;
+  }
+  .rp-timestamp {
+    color: #9B9B9B;
+    line-height: 18px;
+  }
 </style>
 
 
