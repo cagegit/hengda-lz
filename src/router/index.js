@@ -27,6 +27,7 @@ import approvalPage from '@/components/routers/secPages/approvalPage'    //审�
 
 import equipmentRepairPage from '@/components/routers/secPages/equipmentRepairPage'    //报修
 import chartPage from '@/components/routers/secPages/chartPage'  //领导驾驶舱
+import placeRentalPage from  '@/components/routers/secPages/placeRentalPage'  //主页-场地租赁
 
 
 
@@ -160,8 +161,12 @@ export default new Router({
           path:'equipmentRepair',
           name:'equipmentRepair',
           component:equipmentRepairPage
+        },
+        {
+          path:'rental',
+          name:'rental',
+          component:placeRentalPage
         }
-
         
       ]
     }
