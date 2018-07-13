@@ -61,17 +61,17 @@
    import iconcdzl from '@/assets/images/icon/cdzl.png'
    import iconcsfu from '@/assets/images/icon/csfu.png'
    import iconflfu from '@/assets/images/icon/flfu.png'
-   import icongszc from '@/assets/images/icon/gszc.png'  
-   import iconjrfw from '@/assets/images/icon/jrfw.png' 
-   import icontfgg from '@/assets/images/icon/tfgg.png'      
-   import iconrsfw from '@/assets/images/icon/rsfw.png' 
-   import iconzsyz from '@/assets/images/icon/zsyz.png' 
-   import iconzscq from '@/assets/images/icon/zscq.png' 
-   import iconqyrz from '@/assets/images/icon/qyrz.png' 
-   import iconczjf from '@/assets/images/icon/czjf.png' 
-import iconGroup14 from '@/assets/images/icon/Group14.png' 
-import iconGroup15 from '@/assets/images/icon/Group15.png' 
-import iconGroup17 from '@/assets/images/icon/Group17.png' 
+   import icongszc from '@/assets/images/icon/gszc.png'
+   import iconjrfw from '@/assets/images/icon/jrfw.png'
+   import icontfgg from '@/assets/images/icon/tfgg.png'
+   import iconrsfw from '@/assets/images/icon/rsfw.png'
+   import iconzsyz from '@/assets/images/icon/zsyz.png'
+   import iconzscq from '@/assets/images/icon/zscq.png'
+   import iconqyrz from '@/assets/images/icon/qyrz.png'
+   import iconczjf from '@/assets/images/icon/czjf.png'
+import iconGroup14 from '@/assets/images/icon/Group14.png'
+import iconGroup15 from '@/assets/images/icon/Group15.png'
+import iconGroup17 from '@/assets/images/icon/Group17.png'
     export default {
         name:'homePage',
         data(){
@@ -93,7 +93,7 @@ import iconGroup17 from '@/assets/images/icon/Group17.png'
                     },{
                         title:'充值缴费',
                         icon:iconczjf,
-                        path:'/second/review'
+                        path:'/second/recharge'
                     }
                 ],
 
