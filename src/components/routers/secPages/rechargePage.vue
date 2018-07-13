@@ -2,7 +2,11 @@
   <div class="build-active-box">
     <mt-header title="充值中心" style="background-color: #FD2D00;">
       <mt-button slot="left" @click.native="back" icon="back"></mt-button>
-      <mt-button slot="right" class="header-title-rt">缴费记录</mt-button>
+                
+       <router-link to="/second/paymentRecords">
+                <mt-button slot="right" class="header-title-rt">缴费记录</mt-button>
+            </router-link>
+     
     </mt-header>
     <div class="rc-head">
       <div class="rc-head-txt">等待-Harbor house缴费....</div>
@@ -82,7 +86,9 @@
       <mt-cell title="缴费类型" value="年交" class="cell-bottom-hr cell-st-txt"></mt-cell>
       <mt-cell title="付款方式" value="中国银行(0400)" class="cell-bottom-hr cell-st-txt"></mt-cell>
       <div class="rp-sheet-btn">
-        <button>立即付款</button>
+        <router-link to="/second/paymentSuccess">
+                <button>立即付款</button>
+        </router-link>
       </div>
     </van-actionsheet>
   </div>
