@@ -21,8 +21,9 @@
       <van-cell-group>
         <van-cell  @click="toBill()">
             <img src="@/assets/images/location.png" slot="icon" class="c-cell-icon">
-            <div class="van-cell__title">
+            <div class="van-cell__title van-cus-tt">
             <span>恒大绿洲-C座-平安街Harbor house底商23号</span>
+              <!--<div class="van-cell__label">&nbsp;</div>-->
             </div>
         </van-cell>
       </van-cell-group>
@@ -32,7 +33,7 @@
       <van-cell-group>
         <van-cell  @click="toBill()">
           <img src="@/assets/images/zlf.png" slot="icon" class="c-cell-icon">
-          <div class="van-cell__title"><span>租赁费</span>
+          <div class="van-cell__title van-cus-tt"><span>租赁费</span>
             <div class="van-cell__label">恒大绿洲-C座-平安街Harbor house底商23号</div>
           </div>
         </van-cell>
@@ -44,7 +45,7 @@
         <!--<van-cell title="物业费" label="购物业费次数 00000011次" icon="location" />-->
         <van-cell  @click="toBill()">
           <img src="@/assets/images/wyf.png" slot="icon" class="c-cell-icon">
-          <div class="van-cell__title"><span>物业费</span>
+          <div class="van-cell__title van-cus-tt"><span>物业费</span>
             <div class="van-cell__label">购物业费次数 00000011次</div>
           </div>
         </van-cell>
@@ -56,7 +57,7 @@
         <!--<van-cell title="电费" label="购电次数 00000011次" icon="location" />-->
         <van-cell  @click="toBill()">
           <img src="@/assets/images/dianf.png" slot="icon" class="c-cell-icon">
-          <div class="van-cell__title"><span>电费</span>
+          <div class="van-cell__title van-cus-tt"><span>电费</span>
             <div class="van-cell__label">购电次数 00000011次</div>
           </div>
         </van-cell>
@@ -68,7 +69,7 @@
         <!--<van-cell title="水费" label="购水次数 00000011次" icon="location" />-->
         <van-cell  @click="toBill()">
           <img src="@/assets/images/dianf.png" slot="icon" class="c-cell-icon">
-          <div class="van-cell__title"><span>水费</span>
+          <div class="van-cell__title van-cus-tt"><span>水费</span>
             <div class="van-cell__label">购水次数 00000011次</div>
           </div>
         </van-cell>
@@ -247,5 +248,14 @@
   .cus-sheet .van-icon-close {
     left: 0 !important;
     right: auto !important;
+  }
+  .van-cus-tt {
+    font-size: 30px !important;
+    color: #000000 !important;
+  }
+  .van-cus-tt .van-cell__label {
+    font-size: 24px;
+    color: #9B9B9B;
+    line-height: 2;
   }
 </style>
