@@ -28,6 +28,8 @@ import approvalPage from '@/components/routers/secPages/approvalPage'    //审�
 import equipmentRepairPage from '@/components/routers/secPages/equipmentRepairPage'    //报修
 import chartPage from '@/components/routers/secPages/chartPage'  //领导驾驶舱
 import placeRentalPage from  '@/components/routers/secPages/placeRentalPage'  //主页-场地租赁
+import paymentSuccessPage from  '@/components/routers/secPages/paymentSuccessPage'  //付款成功
+import paymentRecordsPage from  '@/components/routers/secPages/paymentRecordsPage'  //缴费记录
 
 
 
@@ -166,6 +168,16 @@ export default new Router({
           path:'rental',
           name:'rental',
           component:placeRentalPage
+        },
+        {
+          path:'paymentSuccess',
+          name:'paymentSuccess',
+          component:paymentSuccessPage
+        },
+        {
+          path:'paymentRecords',
+          name:'paymentRecords',
+          component:paymentRecordsPage
         }
         
       ]
