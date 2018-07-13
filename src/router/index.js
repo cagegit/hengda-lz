@@ -8,7 +8,7 @@ import Reset from '@/components/routers/startPages/Reset'
 import ModifyPassWord from '@/components/routers/startPages/ModifyPassWord'
 
 //主界面
-import mainPage from '@/components/routers/mainPage'       
+import mainPage from '@/components/routers/mainPage'
 import homePage from '@/components/routers/mainPages/homePage'  //首页
 import msgPage from '@/components/routers/mainPages/msgPage'   //消息
 import sevPage from '@/components/routers/mainPages/sevPage'   //服务
@@ -28,6 +28,8 @@ import approvalPage from '@/components/routers/secPages/approvalPage'    //审�
 import equipmentRepairPage from '@/components/routers/secPages/equipmentRepairPage'    //报修
 import chartPage from '@/components/routers/secPages/chartPage'  //领导驾驶舱
 import placeRentalPage from  '@/components/routers/secPages/placeRentalPage'  //主页-场地租赁
+import rechargePage from  '@/components/routers/secPages/rechargePage'
+import billPage from  '@/components/routers/secPages/billPage'
 import paymentSuccessPage from  '@/components/routers/secPages/paymentSuccessPage'  //付款成功
 import paymentRecordsPage from  '@/components/routers/secPages/paymentRecordsPage'  //缴费记录
 
@@ -170,6 +172,16 @@ export default new Router({
           component:placeRentalPage
         },
         {
+          path:'recharge',
+          name:'recharge',
+          component:rechargePage
+        },
+        {
+          path:'bill',
+          name:'bill',
+          component:billPage
+        },
+        {
           path:'paymentSuccess',
           name:'paymentSuccess',
           component:paymentSuccessPage
@@ -179,7 +191,7 @@ export default new Router({
           name:'paymentRecords',
           component:paymentRecordsPage
         }
-        
+
       ]
     }
   ]
