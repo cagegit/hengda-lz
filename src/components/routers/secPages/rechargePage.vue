@@ -3,10 +3,12 @@
     <mt-header title="充值中心" style="background-color: #FD2D00;">
       <mt-button slot="left" @click.native="back" icon="back"></mt-button>
                 
-       <router-link to="/second/paymentRecords">
-                <mt-button slot="right" class="header-title-rt">缴费记录</mt-button>
-            </router-link>
-     
+        <!-- <router-link to="/second/paymentRecords">
+          <mt-button slot="right" class="header-title-rt">缴费记录</mt-button>
+        </router-link> -->
+     <mt-button slot="right" class="header-title-rt">
+     <router-link to="/second/paymentRecords" style="color:#ffffff">缴费记录 </router-link>
+   </mt-button>
     </mt-header>
     <div class="rc-head">
       <div class="rc-head-txt">等待-Harbor house缴费....</div>
