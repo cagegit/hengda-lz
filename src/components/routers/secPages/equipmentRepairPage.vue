@@ -76,7 +76,7 @@
                           <img slot="icon" src="@/assets/images/address.png" class="rp-icon-wh">
                         </mt-cell>
                     </div>
-                    <div class="form-bottom">
+                    <div class="form-bottom" style="background: transparent; margin-top: 24px;">
                       <mt-button size="large" class="repairBtn">提交</mt-button>
                     </div>
                     </div>
@@ -96,8 +96,8 @@
                            <div class="rp-card-row cell-bottom-hr rp-jj" >
                              <img src="@/assets/images/bx-lf.png" class="rp-lf-img">
                              <div>
-                               <p class="rp-lf-desc">
-                                 我家墙皮脱落的特别严重，粘好的门框子也掉了，前几天经过还导致划伤，希望有关部门处理一下！</p>
+                               <div class="rp-lf-desc">
+                                 我家墙皮脱落的特别严重，粘好的门框子也掉了，前几天经过还导致划伤，希望有关部门处理一下！</div>
                                <p class="rp-timestamp">2018-07-10</p>
                              </div>
                            </div>
@@ -123,8 +123,8 @@
                     <div class="rp-card-row cell-bottom-hr rp-jj" >
                       <img src="@/assets/images/bx-lf.png"  class="rp-lf-img">
                       <div>
-                        <p  class="rp-lf-desc">
-                          我家水管漏水特别严重！水管开裂，还不是水龙头的问题，水管遇热严重变形，多处漏水！</p>
+                        <div  class="rp-lf-desc">
+                          我家水管漏水特别严重！水管开裂，还不是水龙头的问题，水管遇热严重变形，多处漏水！</div>
                         <p class="rp-timestamp">2018-07-10</p>
                       </div>
                     </div>
@@ -150,8 +150,8 @@
                       <div class="rp-card-row cell-bottom-hr rp-jj" >
                         <!--<img src="@/assets/images/bx-lf.png" height="80px" style="padding: 5px;width: 30%;">-->
                         <div>
-                          <p  class="rp-lf-desc">
-                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</p>
+                          <div  class="rp-lf-desc">
+                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</div>
                           <p  class="rp-timestamp">2018-07-10</p>
                         </div>
                       </div>
@@ -183,8 +183,8 @@
                       <div class="rp-card-row cell-bottom-hr rp-jj" >
                         <img src="@/assets/images/bx-lf.png" class="rp-lf-img">
                         <div>
-                          <p class="rp-lf-desc">
-                            我家墙皮脱落的特别严重，粘好的门框子也掉了，前几天经过还导致划伤，希望有关部门处理一下！</p>
+                          <div class="rp-lf-desc">
+                            我家墙皮脱落的特别严重，粘好的门框子也掉了，前几天经过还导致划伤，希望有关部门处理一下！</div>
                           <p  class="rp-timestamp">2018-07-10</p>
                         </div>
                       </div>
@@ -207,8 +207,8 @@
                       <div class="rp-card-row cell-bottom-hr rp-jj" >
                         <img src="@/assets/images/bx-lf.png" class="rp-lf-img">
                         <div>
-                          <p class="rp-lf-desc">
-                            我家水管漏水特别严重！水管开裂，还不是水龙头的问题，水管遇热严重变形，多处漏水！</p>
+                          <div class="rp-lf-desc">
+                            我家水管漏水特别严重！水管开裂，还不是水龙头的问题，水管遇热严重变形，多处漏水！</div>
                           <p  class="rp-timestamp">2018-07-10</p>
                         </div>
                       </div>
@@ -231,8 +231,8 @@
                       <div class="rp-card-row cell-bottom-hr rp-jj" >
                         <!--<img src="@/assets/images/bx-lf.png" height="80px" style="padding: 5px;width: 30%;">-->
                         <div>
-                          <p  class="rp-lf-desc">
-                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</p>
+                          <div  class="rp-lf-desc">
+                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</div>
                           <p  class="rp-timestamp">2018-07-10</p>
                         </div>
                       </div>
@@ -255,8 +255,8 @@
                       <div class="rp-card-row cell-bottom-hr rp-jj" >
                         <!--<img src="@/assets/images/bx-lf.png" height="80px" style="padding: 5px;width: 30%;">-->
                         <div>
-                          <p  class="rp-lf-desc">
-                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</p>
+                          <div class="rp-lf-desc">
+                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</div>
                           <p  class="rp-timestamp">2018-07-10</p>
                         </div>
                       </div>
@@ -279,8 +279,8 @@
                       <div class="rp-card-row cell-bottom-hr rp-jj" >
                         <!--<img src="@/assets/images/bx-lf.png" height="80px" style="padding: 5px;width: 30%;">-->
                         <div>
-                          <p  class="rp-lf-desc">
-                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</p>
+                          <div  class="rp-lf-desc">
+                            A座西区7楼走廊的声控灯坏了，到晚上黑漆漆的，感觉闹鬼似得，反应了好几次，修好了又坏好几回了都，到底能不能修好啊！</div>
                           <p  class="rp-timestamp">2018-07-10</p>
                         </div>
                       </div>
@@ -821,8 +821,8 @@ h5{
     flex-basis: 100%;
   }
   .rp-icon-wh {
-    width: 25px;
-    height: 26px;
+    width: 35px;
+    height: 36px;
     display: inline-block;
   }
   .rp-jj {

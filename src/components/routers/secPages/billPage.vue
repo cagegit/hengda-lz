@@ -31,16 +31,8 @@
   </div>
 </template>
 <script>
-  import { CellGroup, Cell, CellSwipe } from 'vant';
-  import Vue from 'vue'
-  Vue.use(CellSwipe).use(Cell).use(CellGroup);
   export default {
     name: "rechargePage",
-    components: {
-      [Cell.name]: Cell,
-      [CellGroup.name]: CellGroup,
-      [CellSwipe.name]: CellSwipe
-    },
     methods: {
       back() {
         this.$router.back();
@@ -73,15 +65,6 @@
     background-color: #FD2D00;
     padding-top: 28px;
     height: 412px;
-  }
-  .rc-head-box {
-    /*display: flex;*/
-    /*!*align-content: center;*!*/
-    /*justify-content: center;*/
-    /*flex-basis: 100%;*/
-    padding-top: 35px;
-    padding-bottom: 35px;
-
   }
   .rc-head-txt {
     font-size: 28px;

@@ -89,8 +89,6 @@
 </template>
 <script>
   import { CellGroup, Cell, CellSwipe,Actionsheet  } from 'vant';
-  import Vue from 'vue'
-  Vue.use(CellSwipe).use(Cell).use(CellGroup).use(Actionsheet);
   export default {
     name: "rechargePage",
     components: {
