@@ -74,4 +74,15 @@ export function getDayOfYear(val) {
     return days.slice(1, month).reduce((acculator, num) => acculator + num, days[0]) + day;
 }
 
+//截取指定长度字符串，并已...结束
+export function strLengthFilter(str, len){
+    var cutStr;
+    if (str.length >= len) {
+      cutStr = str.slice(0, len)+"...";
+    }else{
+      cutStr = str;
+    }
+    return cutStr;
+}
+
 

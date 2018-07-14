@@ -1,7 +1,7 @@
 <template>
     <div class="active-page-box">
         <back-header title="缴费记录"></back-header>
-        <Search placeholder="请输入搜索内容" /> 
+        <Search placeholder="请输入搜索内容" />
         <div class="month-rule">
             <van-steps
                 class="date-tit"
@@ -52,7 +52,7 @@
     import {Step, Steps}  from 'vant';
     Vue.use(Step).use(Steps);
     export default {
-        name:'paymentSuccess',
+        name:'paymentRecords',
         data(){
             return {
                 active:3,

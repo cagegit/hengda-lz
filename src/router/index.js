@@ -32,6 +32,7 @@ import rechargePage from  '@/components/routers/secPages/rechargePage'
 import billPage from  '@/components/routers/secPages/billPage'
 import paymentSuccessPage from  '@/components/routers/secPages/paymentSuccessPage'  //付款成功
 import paymentRecordsPage from  '@/components/routers/secPages/paymentRecordsPage'  //缴费记录
+import rentalListPage from  '@/components/routers/secPages/rentalListPage'  //场地租赁列表页
 
 
 
@@ -190,6 +191,11 @@ export default new Router({
           path:'paymentRecords',
           name:'paymentRecords',
           component:paymentRecordsPage
+        },
+        {
+          path:'rentalList',
+          name:'rentalList',
+          component:rentalListPage
         }
 
       ]

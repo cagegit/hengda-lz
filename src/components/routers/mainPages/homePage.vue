@@ -89,7 +89,7 @@ import iconGroup17 from '@/assets/images/icon/Group17.png'
                     },{
                         title:'场地租赁',
                         icon:iconcdzl,
-                        path:'/second/rental'
+                        path:'/second/rentalList'
                     },{
                         title:'充值缴费',
                         icon:iconczjf,
