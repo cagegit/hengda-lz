@@ -30,6 +30,11 @@ import chartPage from '@/components/routers/secPages/chartPage'  //领导驾驶�
 import placeRentalPage from  '@/components/routers/secPages/placeRentalPage'  //主页-场地租赁
 import rechargePage from  '@/components/routers/secPages/rechargePage'
 import billPage from  '@/components/routers/secPages/billPage'
+import paymentSuccessPage from  '@/components/routers/secPages/paymentSuccessPage'  //付款成功
+import paymentRecordsPage from  '@/components/routers/secPages/paymentRecordsPage'  //缴费记录
+import rentalListPage from  '@/components/routers/secPages/rentalListPage'  //场地租赁列表页
+
+
 
 
 
@@ -176,6 +181,21 @@ export default new Router({
           path:'bill',
           name:'bill',
           component:billPage
+        },
+        {
+          path:'paymentSuccess',
+          name:'paymentSuccess',
+          component:paymentSuccessPage
+        },
+        {
+          path:'paymentRecords',
+          name:'paymentRecords',
+          component:paymentRecordsPage
+        },
+        {
+          path:'rentalList',
+          name:'rentalList',
+          component:rentalListPage
         }
 
       ]
