@@ -26,7 +26,7 @@ html,body{
   margin: 0 auto;
   position: relative;
   overflow-x: hidden;
-  
+
 }
 #app>div{
   width: 10rem;

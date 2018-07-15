@@ -1,7 +1,7 @@
 <template>
     <div class="second-page-box">
-        <!-- <transition name="slide"> -->  
-        <transition name="transitionName">          
+        <!-- <transition name="slide"> -->
+        <transition name="transitionName">
             <router-view ></router-view>
         </transition>
     </div>
@@ -49,7 +49,7 @@ data () {
   padding: 0.5rem 0;
   position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   width: 10rem;
 }
 .second-page-box .mint-header .mint-button {

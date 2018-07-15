@@ -2,7 +2,7 @@
   <div class="build-active-box">
     <mt-header title="充值中心" style="background-color: #FD2D00;">
       <mt-button slot="left" @click.native="back" icon="back"></mt-button>
-                
+
         <!-- <router-link to="/second/paymentRecords">
           <mt-button slot="right" class="header-title-rt">缴费记录</mt-button>
         </router-link> -->
@@ -85,8 +85,26 @@
     <!--带标题的弹窗-->
     <van-actionsheet v-model="isZf" title="确认付款" class="cus-sheet">
        <div class="rp-sheet-money"><span>¥ 1126698.00元</span></div>
-      <mt-cell title="缴费类型" value="年交" class="cell-bottom-hr cell-st-txt"></mt-cell>
-      <mt-cell title="付款方式" value="中国银行(0400)" class="cell-bottom-hr cell-st-txt"></mt-cell>
+      <!--<mt-cell title="缴费类型" value="年交" class="cell-bottom-hr cell-st-txt"></mt-cell>-->
+      <!--<mt-cell title="使用银行卡支付" icon="debit-pay" label="立减4.6元" is-link class="cell-bottom-hr cell-st-txt"></mt-cell>-->
+      <van-cell-group style="margin-bottom: 10px;">
+        <van-cell title="缴费类型" icon="balance-pay" value="年交" class="cell-bottom-hr cell-st-txt"/>
+        <van-cell title="使用银行卡支付" icon="debit-pay" label="立减4.6元" is-link class="cell-st-txt"/>
+      </van-cell-group>
+      <ul class="pay_way">
+        <li @click="payType = '1'">
+          <span class="pay_icon"><van-icon name="alipay" style="color:#3d91e4;"/></span>
+          <span class="pay_way_name">支付宝</span>
+          <span class="selected" v-if="payType === '1'"><van-icon name="success" style="color: #fff" /></span>
+          <span class="select" v-else></span>
+        </li>
+        <li @click="payType = '2'">
+          <span class="pay_icon"><van-icon name="wechat" style="color:#2aaf90;"/></span>
+          <span class="pay_way_name">微信支付</span>
+          <span class="selected" v-if="payType === '2'"><van-icon name="success" style="color: #fff" /></span>
+          <span class="select" v-else></span>
+        </li>
+      </ul>
       <div class="rp-sheet-btn">
         <router-link to="/second/paymentSuccess">
                 <button>立即付款</button>
@@ -96,18 +114,20 @@
   </div>
 </template>
 <script>
-  import { CellGroup, Cell, CellSwipe,Actionsheet  } from 'vant';
+  import { CellGroup, Cell, CellSwipe,Actionsheet,Icon  } from 'vant';
   export default {
     name: "rechargePage",
     components: {
       [Cell.name]: Cell,
       [CellGroup.name]: CellGroup,
       [CellSwipe.name]: CellSwipe,
-      [Actionsheet.name]: Actionsheet
+      [Actionsheet.name]: Actionsheet,
+      [Icon.name]: Icon
     },
     data() {
        return  {
-         isZf: false
+         isZf: false,
+         payType: '1',  //支付渠道
        }
     },
     methods: {
@@ -224,6 +244,7 @@
   .rp-sheet-money {
     padding-top: 67px;
     text-align: center;
+    padding-bottom: 20px;
   }
   .rp-sheet-money span{
     font-size: 64px;
@@ -231,7 +252,7 @@
   }
   .rp-sheet-btn {
     text-align: center;
-    margin: 220px auto 50px;
+    margin: 150px auto 50px;
   }
   .rp-sheet-btn button {
     background: #FD2D00;
@@ -264,4 +285,39 @@
     color: #9B9B9B;
     line-height: 2;
   }
+.pay_way {
+  background: #fff;
+}
+.pay_way li {
+  display: flex;
+  align-items: center;
+  height: 1.3333333333rem;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid #e9e8ea;
+}
+.pay_way li .pay_icon {
+  margin-right: 30px;
+  padding-top: 0.2rem;
+}
+.pay_way li .pay_way_name {
+  flex: 1;
+  font-size: 0.5rem;
+}
+.pay_way li .select, .pay_way li .selected {
+  display: inline-block;
+  width: 0.6666666667rem;
+  height: 0.6666666667rem;
+  border-radius: 50%;
+}
+.pay_way li .select {
+  border: 1px solid #e9e8ea;
+}
+.pay_way li .selected {
+  text-align: center;
+  background: #FD2D00;
+  line-height: 0.6666666667rem;
+}
+.pay_way li .selected .iconfont {
+  font-size: 0.6rem;
+}
 </style>
